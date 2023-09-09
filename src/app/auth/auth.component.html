@@ -1,0 +1,52 @@
+    <div *ngIf="isLoading" style="text-align: center;" class="loader"></div>
+    <div *ngIf="errorMessage" class="alert">
+            <p>{{ errorMessage }}</p>
+        </div>
+     <ion-content>
+
+    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+      <ion-list>
+        <ion-item>
+      <div class="form-group">
+        <label for="email">E-Mail</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          ngModel
+          name="email"
+          required
+          email
+        />
+      </div>
+    </ion-item>
+    <ion-item>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          ngModel
+          name="password"
+          required
+          minlength="6"
+        />
+      </div>
+    </ion-item>
+    </ion-list>
+      <div>
+        <ion-button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!authForm.valid"
+        >
+          {{ isLoginMode ? 'Login' : 'Sign Up' }}
+        </ion-button>
+        |
+        <ion-button class="btn btn-primary" (click)="onSwitchMode()" type="button">
+          Switch to {{ isLoginMode ? 'Sign Up' : 'Login' }}
+        </ion-button>
+      </div>
+    </form>
+</ion-content>

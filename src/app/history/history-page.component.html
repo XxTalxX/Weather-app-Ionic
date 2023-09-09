@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>History</ion-title>
+    <a (click)="onLogout()" style="cursor: pointer; float: right;" >Logout</a>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<ion-item *ngFor="let weather of weatherHistory">
+<div slot="start"></div>
+<ion-label class="ion-text-wrap">
+  <h2>
+    {{ weather.hourly.time[0].substring(weather.hourly.time[0].indexOf('T') + 1) }}
+    <span class="date">
+      <ion-note> {{ weather.hourly.temperature_2m[0] }}° </ion-note>
+    </span>
+  </h2>
+  <h3> {{  weather.hourly.relativehumidity_2m[0] }}% | {{ weather.hourly.windspeed_10m[0] }}ĸm/h </h3>
+  <p> {{ weather.latitude }}, {{  weather.longitude }}</p>
+</ion-label>
+</ion-item>
+</ion-content>
+<div *ngIf="errorMessage" class="alert">
+  <p>{{ errorMessage.error }}</p>
+</div>
