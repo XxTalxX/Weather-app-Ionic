@@ -41,12 +41,6 @@ export class WeatherEffects {
    }));
 
 
-   @Effect({dispatch: false})
-   unFavorite = this.actions$.pipe(ofType(WeatherActions.WeatherActionTypes.UnFavorite),
-   switchMap((unFavoriteAction: WeatherActions.UnFavorite) => {
-      return of(localStorage.removeItem(''));
-   }));
-
    @Effect()
    fetchWeathers = this.actions$.pipe(ofType(WeatherActions.WeatherActionTypes.FetchWeathers),
    switchMap(() => {

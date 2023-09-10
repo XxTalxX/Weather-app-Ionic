@@ -5,8 +5,6 @@ export enum WeatherActionTypes {
   LoadWeathers = '[Weather] Load Weathers',
   LoadWeathersSuccess = '[Weather] Load Weathers Success',
   LoadWeathersFailure = '[Weather] Load Weathers Failure',
-  AddToFavorites = '[Weather] Add To Favorites',
-  UnFavorite = '[Weather] UnFavorite',
   AddWeather = '[Weather] Add Weather',
   AddPicture = '[Weather] Add Picture',
   FetchWeathers =  '[Weather] Fetch Weathers',
@@ -47,18 +45,8 @@ export class FetchWeathers implements Action {
   readonly type = WeatherActionTypes.FetchWeathers;
 }
 
-export class AddToFavorites implements Action {
-  readonly type = WeatherActionTypes.AddToFavorites;
-  constructor(public payload: Weather) {}
-}
-
-export class UnFavorite implements Action {
-  readonly type = WeatherActionTypes.UnFavorite;
-  constructor(public payload: Weather) {}
-}
 
 
 
-
-export type WeatherActions = LoadWeathers | LoadWeathersSuccess | LoadWeathersFailure | AddToFavorites | UnFavorite | AddWeather | AddPicture | FetchWeathers| SetWeathers;
+export type WeatherActions = LoadWeathers | LoadWeathersSuccess | LoadWeathersFailure |  AddWeather | AddPicture | FetchWeathers| SetWeathers;
 
